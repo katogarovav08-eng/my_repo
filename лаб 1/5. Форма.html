@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подбор тура | Туроператор-онлайн</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #fefcf9; color: #1e293b; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        header { background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 100; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; flex-wrap: wrap; gap: 20px; }
+        .logo { font-size: 1.9rem; font-weight: 800; background: linear-gradient(135deg, #f97316, #facc15); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .nav-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; font-weight: 500; color: #334155; transition: 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: #f97316; }
+        .form-card { background: white; border-radius: 40px; padding: 40px; margin: 50px 0; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 24px; }
+        label { font-weight: 600; display: block; margin-bottom: 8px; color: #1e293b; }
+        input, select, textarea { width: 100%; padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 24px; font-family: inherit; font-size: 1rem; transition: 0.2s; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: #f97316; box-shadow: 0 0 0 3px rgba(249,115,22,0.1); }
+        .checkbox-group, .radio-group { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 8px; }
+        .checkbox-group label, .radio-group label { display: flex; align-items: center; gap: 8px; font-weight: normal; cursor: pointer; }
+        .btn-group { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 32px; }
+        .btn-reset { background: #e2e8f0; color: #1e293b; }
+        .btn-reset:hover { background: #cbd5e1; transform: none; box-shadow: none; }
+        .footer { text-align: center; padding: 40px 0; border-top: 1px solid #e9e9ef; margin-top: 40px; color: #5b6e8c; }
+        @media (max-width: 640px) { .form-card { padding: 24px; } }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo"><i class="fas fa-globe-americas"></i> Туроператор-онлайн</div>
+            <ul class="nav-links">
+                <li><a href="1. главная.html">Главная</a></li>
+                <li><a href="2. Турция.html">Турция</a></li>
+                <li><a href="3. Египет.html">Египет</a></li>
+                <li><a href="4. Таиланд.html">Таиланд</a></li>
+                <li><a href="5. Форма.html" class="active">Подобрать тур</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <div class="form-card">
+        <h2 style="font-size: 2rem; margin-bottom: 8px;"><i class="fas fa-search"></i> Подбор тура мечты</h2>
+        <p style="margin-bottom: 32px; color: #475569;">Заполните форму, и мы подберём лучший вариант специально для вас.</p>
+
+        <form id="tourForm">
+            <!-- ФИО заказчика -->
+            <div class="form-group">
+                <label>ФИО заказчика *</label>
+                <input type="text" id="fio" placeholder="Иванов Иван Иванович" required>
+            </div>
+            <!-- Количество туристов -->
+            <div class="form-group">
+                <label>Количество туристов</label>
+                <input type="number" id="tourists" min="1" value="2">
+            </div>
+            <!-- Телефон -->
+            <div class="form-group">
+                <label>Телефон</label>
+                <input type="tel" id="phone" placeholder="+7 (999) 123-45-67">
+            </div>
+            <!-- Email -->
+            <div class="form-group">
+                <label>Электронная почта</label>
+                <input type="email" id="email" placeholder="client@example.com">
+            </div>
+
+            <!-- флажки: звездность отеля (5,4,3) -->
+            <div class="form-group">
+                <label>Звёздность отеля (можно выбрать несколько)</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="stars" value="5"> ★★★★★ (5 звёзд)</label>
+                    <label><input type="checkbox" name="stars" value="4"> ★★★★ (4 звезды)</label>
+                    <label><input type="checkbox" name="stars" value="3"> ★★★ (3 звезды)</label>
+                </div>
+            </div>
+
+            <!-- селекторные переключатели: страна (radio) -->
+            <div class="form-group">
+                <label>Выберите страну</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="country" value="Турция"> Турция</label>
+                    <label><input type="radio" name="country" value="Египет"> Египет</label>
+                    <label><input type="radio" name="country" value="Таиланд"> Таиланд</label>
+                </div>
+            </div>
+
+            <!-- выпадающий список: отдаленность от моря -->
+            <div class="form-group">
+                <label>Отдалённость от моря</label>
+                <select id="distance">
+                    <option value="1-я линия">1-я линия (пляж)</option>
+                    <option value="2-я линия">2-я линия (до 500 м)</option>
+                    <option value="3-я линия">3-я линия (более 500 м)</option>
+                </select>
+            </div>
+
+            <!-- многострочное поле: Пожелания к туру -->
+            <div class="form-group">
+                <label>Пожелания к туру</label>
+                <textarea id="wishes" rows="4" placeholder="Например: нужен трансфер, детское меню, вид на море..."></textarea>
+            </div>
+
+            <!-- кнопки -->
+            <div class="btn-group">
+                <button type="button" class="btn" id="submitBtn"><i class="fas fa-plane-departure"></i> Подобрать тур</button>
+                <button type="button" class="btn btn-reset" id="resetBtn"><i class="fas fa-undo-alt"></i> Очистить форму</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<div class="footer">
+    <div class="container">
+        <p>Туроператор-онлайн — заполните форму, и мы найдём идеальный тур!</p>
+    </div>
+</div>
+
+<script>
+    // Функция очистки формы
+    function resetForm() {
+        document.getElementById('fio').value = '';
+        document.getElementById('tourists').value = '2';
+        document.getElementById('phone').value = '';
+        document.getElementById('email').value = '';
+        const checkboxes = document.querySelectorAll('input[name="stars"]');
+        checkboxes.forEach(cb => cb.checked = false);
+        const radios = document.querySelectorAll('input[name="country"]');
+        radios.forEach(radio => radio.checked = false);
+        document.getElementById('distance').selectedIndex = 0;
+        document.getElementById('wishes').value = '';
+    }
+
+    // Функция сбора данных и вывода alert
+    function submitForm() {
+        const fio = document.getElementById('fio').value.trim();
+        if (!fio) {
+            alert('Пожалуйста, укажите ФИО заказчика.');
+            return;
+        }
+        const tourists = document.getElementById('tourists').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        
+        // выбранные звезды
+        const starsChecked = Array.from(document.querySelectorAll('input[name="stars"]:checked')).map(cb => cb.value);
+        const starsText = starsChecked.length ? starsChecked.join(', ') : 'не выбрано';
+        
+        // выбранная страна (radio)
+        let selectedCountry = '';
+        const countryRadio = document.querySelector('input[name="country"]:checked');
+        if (countryRadio) selectedCountry = countryRadio.value;
+        else selectedCountry = 'не выбрана';
+        
+        const distance = document.getElementById('distance').value;
+        const wishes = document.getElementById('wishes').value;
+        
+        const message = `🔹 ЗАЯВКА НА ПОДБОР ТУРА 🔹
+        \nФИО: ${fio}
+        \nКол-во туристов: ${tourists}
+        \nТелефон: ${phone || 'не указан'}
+        \nEmail: ${email || 'не указан'}
+        \nЗвёздность: ${starsText}
+        \nСтрана: ${selectedCountry}
+        \nУдалённость от моря: ${distance}
+        \nПожелания: ${wishes || '—'}
+        \n\nСпасибо! Менеджер свяжется с вами.`;
+        
+        alert(message);
+    }
+    
+    document.getElementById('submitBtn').addEventListener('click', submitForm);
+    document.getElementById('resetBtn').addEventListener('click', resetForm);
+</script>
+</body>
+</html>
