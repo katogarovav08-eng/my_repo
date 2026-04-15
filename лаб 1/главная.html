@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Туроператор-онлайн</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fefcf9;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* Шапка */
+        header {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .logo {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f97316, #facc15);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #334155;
+            transition: 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #f97316;
+        }
+        /* Кнопки */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f97316;
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #ea580c;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(249,115,22,0.25);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #f97316;
+            color: #f97316;
+        }
+        .btn-outline:hover {
+            background: #f97316;
+            color: white;
+        }
+        /* Hero */
+        .hero {
+            background: linear-gradient(120deg, #fff5eb, #ffffff);
+            border-radius: 48px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #475569;
+            max-width: 700px;
+            margin: 0 auto 32px;
+        }
+        /* Карточки стран */
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
+            margin: 60px 0;
+        }
+        .country-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+            transition: 0.25s;
+        }
+        .country-card:hover {
+            transform: translateY(-6px);
+        }
+        .card-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+        }
+        .card-content {
+            padding: 24px;
+        }
+        .card-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+        .card-content p {
+            color: #475569;
+            margin-bottom: 20px;
+        }
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #e9e9ef;
+            margin-top: 60px;
+            color: #5b6e8c;
+        }
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo"><i class="fas fa-globe-americas"></i> Туроператор-онлайн</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="turkey.html">Турция</a></li>
+                <li><a href="egypt.html">Египет</a></li>
+                <li><a href="thailand.html">Таиланд</a></li>
+                <li><a href="form.html">Подобрать тур</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <div class="hero">
+        <h1>Путешествуйте с нами</h1>
+        <p>Лучшие заграничные туры, отели на любой вкус и индивидуальный подход. Откройте мир вместе с Туроператор-онлайн!</p>
+        <a href="form.html" class="btn"><i class="fas fa-search"></i> Подобрать тур</a>
+    </div>
+
+    <h2 style="font-size: 2rem; margin-bottom: 24px;">Популярные направления</h2>
+    <div class="countries-grid">
+        <div class="country-card">
+            <div class="card-img" style="background-image: url('https://images.pexels.com/photos/1308940/beach-sunset-turkey-1308940.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+            <div class="card-content">
+                <h3>Турция</h3>
+                <p>Средиземное и Эгейское море, тёплый климат, идеальный отдых «всё включено».</p>
+                <a href="turkey.html" class="btn-outline btn">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="country-card">
+            <div class="card-img" style="background-image: url('https://images.pexels.com/photos/2166927/pexels-photo-2166927.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+            <div class="card-content">
+                <h3>Египет</h3>
+                <p>Красное море, коралловые рифы, древние пирамиды и круглогодичное лето.</p>
+                <a href="egypt.html" class="btn-outline btn">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="country-card">
+            <div class="card-img" style="background-image: url('https://images.pexels.com/photos/1008203/phuket-thailand-beach-1008203.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+            <div class="card-content">
+                <h3>Таиланд</h3>
+                <p>Андаманское море, экзотическая природа, яркая культура и изысканная кухня.</p>
+                <a href="thailand.html" class="btn-outline btn">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="footer">
+    <div class="container">
+        <p>© 2025 Туроператор-онлайн — ваш эксперт по заграничным турам.</p>
+    </div>
+</div>
+</body>
+</html>
